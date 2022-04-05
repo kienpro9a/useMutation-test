@@ -14,8 +14,8 @@ const Info = ({ setTodoId }) => {
   }
   return (
     <List >
-      {data?.data.map((dt) => (
-        <ListItem key={dt.id}>
+      {data?.data.map((dt,index) => (
+        <ListItem key={index}>
           <Box>
             <Text>{dt.task}</Text>
             <Button colorScheme="blue" variant="outline" onClick={() => setTodoId(dt.id)}>Detail</Button>

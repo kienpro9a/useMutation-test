@@ -12,6 +12,28 @@ const AddTodo = () => {
   const [task, setTask] = useState("");
   const queryClient = useQueryClient()
   const { mutate } = useMutation(api.addTodo,{
+    // onSuccess: (data)=>{
+    //   queryClient.setQueryData('todos',old=>{
+    //     return{
+    //       ...old,
+    //       data: [...old.data,data.data]
+    //     }
+    //   })
+    // }
+    onMutate: async newdata => {
+      await queryClient.cancelQueries('todos')
+      const previousTodos = queryClient.getQueryData('todos')
+      queryClient.setQueryData('todos', old=>{
+            return{
+              ...old,
+              data: [...old.data,newdata]
+            }
+          })
+      return { previousTodos }
+    },
+    onError: (context) => {
+      queryClient.setQueryData('todos', context.previousTodos)
+    },
     onSettled: () => {
       queryClient.invalidateQueries('todos')
     },
