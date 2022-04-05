@@ -1,18 +1,24 @@
-import React from "react";
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
-
-import Main from "./components/main";
-
-const queryClient = new QueryClient()
+import { SimpleGrid, Box } from "@chakra-ui/react";
+import React, { useState } from "react";
+import Info from "./components/info";
+import AddTodo from "./components/addTodo";
+import DetailTodo from "./components/detailTodo";
 
 function App() {
+  const [todoId, setTodoId] = useState()
   return (
-    <QueryClientProvider client={queryClient}>
-      <Main/>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-
+    <SimpleGrid
+      columns={{ base: 1, md: 2 }}
+      spacing={0}
+    >
+      <Box p="20">
+        <AddTodo />
+        <Info setTodoId={setTodoId}/>
+      </Box>
+      <Box p="20">
+        <DetailTodo todoId={todoId}/>
+      </Box>
+    </SimpleGrid>
   );
 }
 

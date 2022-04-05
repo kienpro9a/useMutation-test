@@ -3,27 +3,27 @@
     {
       "id": 1,
       "completed": false,
-      "task": "qwer"
+      "task": "Làm bài tập Javascript"
     },
     {
-      "id": 2,
       "completed": false,
-      "task": "asdf"
+      "task": "Đá bóng",
+      "id": 2
     },
     {
-      "id": 3,
       "completed": false,
-      "task": "zxcv"
+      "task": "Nấu cơm",
+      "id": 3
     },
     {
       "id": 4,
       "completed": true,
-      "task": "wert"
+      "task": "Xem phim"
     },
     {
       "id": 5,
       "completed": false,
-      "task": "fghj"
+      "task": "Tập thể dục"
     },
     {
       "id": 6,
@@ -32,12 +32,12 @@
     },
     {
       "completed": false,
-      "task": "asd",
+      "task": "1231",
       "id": 7
     },
     {
       "completed": false,
-      "task": "asdfasdfsa",
+      "task": "ádfasfdsfa",
       "id": 8
     }
   ]
